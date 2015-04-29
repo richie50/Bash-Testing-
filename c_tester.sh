@@ -1,7 +1,9 @@
 #------------------------------------------------------------------#
 #Author A simple program to check a C program expected output      #
-# by redirecting the file with extension .in and comparing		     #
-#with .out file													                           #
+# by redirecting the file with extension .in and comparing	  #
+#with .out file
+# Sample run sh c_tester.sh <program.c>
+# NOTE ALL FILES WITH EXT .IN AND .OUT MUST BE IN CUR DIRECTORY
 #------------------------------------------------------------------#
 !bin/sh/
 #PLEASE READ THE COMMENTS 
@@ -10,8 +12,7 @@
 if test -e $1.c       #TEST TO SEE IF THE FILE EXIST
 then
 	gcc -o $1  $1.c 2>rich.text    #COMPILE AND SAVE THE RESULT IN A FILE(rename the file rich.text)
-	if grep -q "error" rich.text   #CHECK IF THE FILE HAS THE WORD ERROR
-	then 
+	if grep -q "error" rich.text   #CHECK IF THE FILE HAS THE WORD ERROR or REDEIRECT TO DEV/NULL
 	echo "Can't Compile"
 else    #ADD THIS ELSE
 	 
